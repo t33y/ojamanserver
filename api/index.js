@@ -9,7 +9,7 @@ import http from 'http';
 
 export const config = {
   databaseURI: 'mongodb+srv://teewhy:passingword@atlascluster.ukbg65g.mongodb.net/ojaman',
-  cloud: __dirname + '/cloud/main.js',
+  // cloud: __dirname + '/cloud/main.js',
   appId: 'myAppId',
   masterKey: 'masterkey', //Add your master key here. Keep it secret!
   serverURL: 'https://ojamanserver.vercel.app/', // Don't forget to change to https if needed
@@ -19,6 +19,7 @@ export const config = {
 };
 
 console.log('database', process.env.DATABASE_URI, process.env.MONGODB_URI);
+console.log('path', __dirname);
 // console.log("cloud code",process.env.CLOUD_CODE_MAIN )
 console.log('app id', process.env.APP_ID);
 console.log('master key', process.env.MASTER_KEY);
