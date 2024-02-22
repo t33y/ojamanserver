@@ -1,6 +1,6 @@
 import http from 'http';
 import { ParseServer } from 'parse-server';
-import { app, config } from '../../cloud/api/index.js';
+import { app, config } from '../../api/index.js';
 
 export const dropDB = async () => {
   await Parse.User.logOut();
