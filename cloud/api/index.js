@@ -22,7 +22,7 @@ export const config = {
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
-export const app = express();
+const app = express();
 
 // Serve static assets from the /public folder
 app.use('/public', express.static(path.join(__dirname, '/public')));
@@ -55,3 +55,5 @@ if (!process.env.TESTING) {
   // This will enable the Live Query real-time server
   await ParseServer.createLiveQueryServer(httpServer);
 }
+
+export default app;
