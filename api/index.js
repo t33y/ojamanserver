@@ -9,7 +9,7 @@ import http from 'http';
 
 export const config = {
   databaseURI: 'mongodb+srv://teewhy:passingword@atlascluster.ukbg65g.mongodb.net/ojaman',
-  // cloud: __dirname + '/cloud/main.js',
+  cloud: '/cloud/main.js',
   appId: 'myAppId',
   masterKey: 'masterkey', //Add your master key here. Keep it secret!
   serverURL: 'https://ojamanserver.vercel.app/', // Don't forget to change to https if needed
