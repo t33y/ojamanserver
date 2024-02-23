@@ -7,16 +7,16 @@ import path from 'path';
 const __dirname = path.resolve();
 import http from 'http';
 
-export const config = {
-  databaseURI: 'mongodb+srv://teewhy:passingword@atlascluster.ukbg65g.mongodb.net/ojaman',
-  cloud: '/cloud/main.js',
-  appId: 'myAppId',
-  masterKey: 'masterkey', //Add your master key here. Keep it secret!
-  serverURL: 'https://ojamanserver.vercel.app/', // Don't forget to change to https if needed
-  liveQuery: {
-    classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
-  },
-};
+// export const config = {
+//   databaseURI: 'mongodb+srv://teewhy:passingword@atlascluster.ukbg65g.mongodb.net/ojaman',
+//   cloud: '/cloud/main.js',
+//   appId: 'myAppId',
+//   masterKey: 'masterkey', //Add your master key here. Keep it secret!
+//   serverURL: 'https://ojamanserver.vercel.app/', // Don't forget to change to https if needed
+//   liveQuery: {
+//     classNames: ['Posts', 'Comments'], // List of classes to support for query subscriptions
+//   },
+// };
 
 console.log('database', process.env.DATABASE_URI, process.env.MONGODB_URI);
 console.log('path', __dirname);
@@ -31,15 +31,15 @@ console.log('server url', process.env.SERVER_URL);
 const app = express();
 
 // Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
+// app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Serve the Parse API on the /parse URL prefix
-if (!process.env.TESTING) {
-  const mountPath = process.env.PARSE_MOUNT || '/parse';
-  const server = new ParseServer(config);
-  await server.start();
-  app.use(mountPath, server.app);
-}
+// if (!process.env.TESTING) {
+//   const mountPath = process.env.PARSE_MOUNT || '/parse';
+//   const server = new ParseServer(config);
+//   await server.start();
+//   app.use(mountPath, server.app);
+// }
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
@@ -48,18 +48,18 @@ app.get('/', function (req, res) {
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
-app.get('/test', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public/test.html'));
-});
+// app.get('/test', function (req, res) {
+//   res.sendFile(path.join(__dirname, '/public/test.html'));
+// });
 
-if (!process.env.TESTING) {
-  const port = process.env.PORT || 1337;
-  const httpServer = http.createServer(app);
-  httpServer.listen(port, function () {
-    console.log('parse-server-example running on port ' + port + '.');
-  });
-  // This will enable the Live Query real-time server
-  await ParseServer.createLiveQueryServer(httpServer);
-}
+// if (!process.env.TESTING) {
+//   const port = process.env.PORT || 1337;
+//   const httpServer = http.createServer(app);
+//   httpServer.listen(port, function () {
+//     console.log('parse-server-example running on port ' + port + '.');
+//   });
+//   // This will enable the Live Query real-time server
+//   await ParseServer.createLiveQueryServer(httpServer);
+// }
 
 export default app;
