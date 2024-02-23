@@ -2,7 +2,7 @@
 // compatible API routes.
 
 import express from 'express';
-import { ParseServer } from 'parse-server';
+// import { ParseServer } from 'parse-server';
 import path from 'path';
 const __dirname = path.resolve();
 import http from 'http';
