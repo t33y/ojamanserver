@@ -43,7 +43,13 @@ const app = express();
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function (req, res) {
-  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+  const res = {
+    appId: process.env.APP_ID,
+    masterKey: process.env.MASTER_KEY,
+    path: __dirname,
+    server: process.env.SERVER_URL,
+  };
+  res.status(200).json(res);
 });
 
 // There will be a test page available on the /test path of your server url
